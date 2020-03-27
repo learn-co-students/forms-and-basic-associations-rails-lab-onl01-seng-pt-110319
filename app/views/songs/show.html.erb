@@ -1,3 +1,9 @@
 <h1>Songs#show</h1>
-
+ID: <%= @song.id %>
+<br>
 Title: <%= @song.title %>
+<br>
+Notes: <%= @song.notes.length %>
+<% @song.notes do |note| %>
+    <%= note %>, 
+<% end %>
