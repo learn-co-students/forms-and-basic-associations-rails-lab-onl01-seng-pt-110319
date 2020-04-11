@@ -29,7 +29,4 @@ def note_contents=(content)
     end
 end
 
-def note_contents
-end
-
 end
