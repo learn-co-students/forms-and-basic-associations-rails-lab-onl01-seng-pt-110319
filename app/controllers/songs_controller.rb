@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  #require 'pry'
   def index
     @songs = Song.all
   end
@@ -9,9 +10,11 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    3.times { @song.notes.build }
   end
 
   def create
+    #binding.pry
     @song = Song.new(song_params)
 
     if @song.save
@@ -47,7 +50,6 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:title, :artist_name, :genre_id, notes_attributes:[:content])
   end
 end
-
